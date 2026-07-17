@@ -38,7 +38,6 @@ export function ProfileActions() {
     <div className="flex items-center gap-2">
       <Button
         variant="outline"
-        size="sm"
         onClick={() =>
           toast.success("Message sent", {
             description: `Your message to ${currentUser.name} is on its way.`,
@@ -47,7 +46,7 @@ export function ProfileActions() {
       >
         <IconMessage className="size-4" /> Message
       </Button>
-      <Button size="sm" onClick={() => setOpen(true)}>
+      <Button onClick={() => setOpen(true)}>
         <IconEdit className="size-4" /> Edit profile
       </Button>
 

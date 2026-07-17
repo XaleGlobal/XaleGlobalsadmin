@@ -129,10 +129,10 @@ export default function NewOrderPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" asChild>
             <Link href="/orders">Cancel</Link>
           </Button>
-          <Button type="submit" size="sm" className="gap-2">
+          <Button type="submit" className="gap-2">
             <IconDeviceFloppy className="size-4" /> Save order
           </Button>
         </div>

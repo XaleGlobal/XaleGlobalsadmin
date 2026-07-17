@@ -371,7 +371,7 @@ export default function AiChatPage() {
           type="button"
           aria-label="Close history"
           className={cn(
-            "absolute inset-0 z-20 bg-black/40 transition-opacity duration-300 md:hidden",
+            "absolute inset-0 z-10 bg-black/40 transition-opacity duration-300 md:hidden",
             railOpen ? "opacity-100" : "pointer-events-none opacity-0"
           )}
           onClick={() => setRailOpen(false)}
@@ -381,7 +381,7 @@ export default function AiChatPage() {
         {/* ---------------------------------------------------------------- */}
         <aside
           className={cn(
-            "absolute inset-y-0 left-0 z-30 flex w-72 flex-col border-r bg-card shadow-xl transition-transform duration-300 ease-in-out",
+            "absolute inset-y-0 left-0 z-20 flex w-72 flex-col border-r bg-card shadow-xl transition-transform duration-300 ease-in-out",
             "md:static md:z-auto md:w-64 md:translate-x-0 md:bg-muted/30 md:shadow-none md:transition-none",
             railOpen ? "translate-x-0" : "-translate-x-full"
           )}
@@ -401,7 +401,7 @@ export default function AiChatPage() {
           <div className="px-3 pb-2">
             <Button
               onClick={newChat}
-              className="w-full justify-start gap-2"
+              className="w-full gap-2"
               variant="outline"
             >
               <IconPlus className="size-4" /> New chat
@@ -504,7 +504,7 @@ export default function AiChatPage() {
           </div>
 
           {/* Thread / empty state */}
-          <div className="min-h-0 flex-1 overflow-y-auto">
+          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
             {hasMessages ? (
               <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-6">
                 {messages.map((m) =>
@@ -564,7 +564,7 @@ export default function AiChatPage() {
                 <div ref={endRef} />
               </div>
             ) : (
-              <div className="mx-auto flex h-full w-full max-w-2xl flex-col items-center justify-center px-4 py-10 text-center">
+              <div className="m-auto flex w-full max-w-2xl flex-col items-center px-4 py-8 text-center">
                 <AiAvatar className="mb-5 size-14 rounded-2xl [&_svg]:size-7" />
                 <h1 className="text-3xl font-semibold tracking-tight">
                   How can I help you, {firstName}?

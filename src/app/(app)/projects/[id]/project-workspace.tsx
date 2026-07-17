@@ -156,10 +156,10 @@ function longDate(iso: string) {
 }
 
 const DAY = 86_400_000;
-const WINDOW_START = new Date("2025-07-01T00:00:00Z").getTime();
-const WINDOW_END = new Date("2025-10-01T00:00:00Z").getTime();
+const WINDOW_START = new Date("2026-07-01T00:00:00Z").getTime();
+const WINDOW_END = new Date("2026-10-01T00:00:00Z").getTime();
 const WINDOW_SPAN = WINDOW_END - WINDOW_START;
-const TODAY = new Date("2025-08-08T00:00:00Z").getTime();
+const TODAY = new Date("2026-08-08T00:00:00Z").getTime();
 
 function toPct(ms: number) {
   return Math.min(100, Math.max(0, ((ms - WINDOW_START) / WINDOW_SPAN) * 100));
@@ -670,7 +670,7 @@ function GanttView({ project, tasks }: { project: Project; tasks: Task[] }) {
                   style={{ width: `${(m.days / 92) * 100}%` }}
                 >
                   {m.label}{" "}
-                  <span className="text-muted-foreground">2025</span>
+                  <span className="text-muted-foreground">2026</span>
                 </div>
               ))}
             </div>

@@ -118,10 +118,10 @@ export default function EditCustomerPage() {
           title="Edit Customer"
           description={`Update the record for ${customer.name} · ${customer.id}`}
         >
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" asChild>
             <Link href={`/customers/${customer.id}`}>Cancel</Link>
           </Button>
-          <Button type="submit" size="sm" disabled={saving}>
+          <Button type="submit" disabled={saving}>
             <IconDeviceFloppy className="size-4" /> Save changes
           </Button>
         </PageHeader>

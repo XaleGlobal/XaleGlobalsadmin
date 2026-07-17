@@ -68,16 +68,16 @@ type Coupon = {
 };
 
 const initialCoupons: Coupon[] = [
-  { id: "DSC-1001", code: "SUMMER25", type: "percentage", value: 25, used: 412, limit: 1000, status: "Active", start: "2025-06-01", end: "2025-08-31" },
-  { id: "DSC-1002", code: "WELCOME10", type: "percentage", value: 10, used: 1240, limit: 5000, status: "Active", start: "2025-01-01", end: "2025-12-31" },
-  { id: "DSC-1003", code: "FREESHIP", type: "fixed", value: 10, used: 883, limit: 2000, status: "Active", start: "2025-05-15", end: "2025-09-30" },
-  { id: "DSC-1004", code: "BFCM40", type: "percentage", value: 40, used: 0, limit: 3000, status: "Scheduled", start: "2025-11-24", end: "2025-12-02" },
-  { id: "DSC-1005", code: "SPRING15", type: "percentage", value: 15, used: 640, limit: 1500, status: "Expired", start: "2025-03-01", end: "2025-05-31" },
-  { id: "DSC-1006", code: "FLASH20", type: "percentage", value: 20, used: 486, limit: 500, status: "Active", start: "2025-07-10", end: "2025-07-24" },
-  { id: "DSC-1007", code: "VIP30", type: "percentage", value: 30, used: 96, limit: 200, status: "Active", start: "2025-04-01", end: "2025-12-31" },
-  { id: "DSC-1008", code: "STUDENT15", type: "percentage", value: 15, used: 512, limit: 1000, status: "Active", start: "2025-01-15", end: "2025-12-31" },
-  { id: "DSC-1009", code: "NEWYEAR50", type: "fixed", value: 50, used: 1500, limit: 1500, status: "Expired", start: "2025-01-01", end: "2025-01-07" },
-  { id: "DSC-1010", code: "AUTUMN20", type: "percentage", value: 20, used: 0, limit: 2500, status: "Scheduled", start: "2025-09-15", end: "2025-11-15" },
+  { id: "DSC-1001", code: "SUMMER25", type: "percentage", value: 25, used: 412, limit: 1000, status: "Active", start: "2026-06-01", end: "2026-08-31" },
+  { id: "DSC-1002", code: "WELCOME10", type: "percentage", value: 10, used: 1240, limit: 5000, status: "Active", start: "2026-01-01", end: "2026-12-31" },
+  { id: "DSC-1003", code: "FREESHIP", type: "fixed", value: 10, used: 883, limit: 2000, status: "Active", start: "2026-05-15", end: "2026-09-30" },
+  { id: "DSC-1004", code: "BFCM40", type: "percentage", value: 40, used: 0, limit: 3000, status: "Scheduled", start: "2026-11-24", end: "2026-12-02" },
+  { id: "DSC-1005", code: "SPRING15", type: "percentage", value: 15, used: 640, limit: 1500, status: "Expired", start: "2026-03-01", end: "2026-05-31" },
+  { id: "DSC-1006", code: "FLASH20", type: "percentage", value: 20, used: 486, limit: 500, status: "Active", start: "2026-07-10", end: "2026-07-24" },
+  { id: "DSC-1007", code: "VIP30", type: "percentage", value: 30, used: 96, limit: 200, status: "Active", start: "2026-04-01", end: "2026-12-31" },
+  { id: "DSC-1008", code: "STUDENT15", type: "percentage", value: 15, used: 512, limit: 1000, status: "Active", start: "2026-01-15", end: "2026-12-31" },
+  { id: "DSC-1009", code: "NEWYEAR50", type: "fixed", value: 50, used: 1500, limit: 1500, status: "Expired", start: "2026-01-01", end: "2026-01-07" },
+  { id: "DSC-1010", code: "AUTUMN20", type: "percentage", value: 20, used: 0, limit: 2500, status: "Scheduled", start: "2026-09-15", end: "2026-11-15" },
 ];
 
 const statusStyles: Record<Coupon["status"], string> = {
@@ -428,7 +428,7 @@ export default function DiscountsPage() {
                     id="start"
                     name="start"
                     type="date"
-                    defaultValue={editing?.start ?? "2025-07-01"}
+                    defaultValue={editing?.start ?? "2026-07-01"}
                     required
                   />
                 </div>
@@ -438,7 +438,7 @@ export default function DiscountsPage() {
                     id="end"
                     name="end"
                     type="date"
-                    defaultValue={editing?.end ?? "2025-12-31"}
+                    defaultValue={editing?.end ?? "2026-12-31"}
                     required
                   />
                 </div>

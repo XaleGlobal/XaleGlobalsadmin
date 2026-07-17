@@ -13,8 +13,6 @@ import {
   IconShieldCheck,
   IconRefresh,
   IconCircleCheckFilled,
-  IconPackage,
-  IconCoin,
 } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/button";
@@ -95,7 +93,6 @@ export default async function ProductDetailPage({
   const seed = Number(product.id.replace(/\D/g, "")) || 1;
   const rating = Math.min(5, 4 + ((seed * 7) % 10) / 10);
   const reviewCount = 42 + ((seed * 53) % 880);
-  const revenue = product.price * product.sold;
   const compareAt = Math.round(product.price * 1.25);
   const brand = brands[seed % brands.length];
   const color = colorways[seed % colorways.length];
@@ -324,14 +321,6 @@ export default async function ProductDetailPage({
         </div>
       </div>
 
-      {/* Stat tiles */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatTile icon={<IconShoppingCart className="size-4" />} label="Units sold" value={product.sold.toLocaleString()} />
-        <StatTile icon={<IconPackage className="size-4" />} label="In stock" value={product.stock.toLocaleString()} />
-        <StatTile icon={<IconCoin className="size-4" />} label="Revenue" value={`$${revenue.toLocaleString()}`} />
-        <StatTile icon={<IconStarFilled className="size-4" />} label="Rating" value={`${rating.toFixed(1)} / 5`} />
-      </div>
-
       {/* Tabs */}
       <Tabs defaultValue="description" className="w-full">
         <TabsList>
@@ -448,27 +437,5 @@ export default async function ProductDetailPage({
         </TabsContent>
       </Tabs>
     </div>
-  );
-}
-
-function StatTile({
-  icon,
-  label,
-  value,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}) {
-  return (
-    <Card>
-      <CardContent className="space-y-2">
-        <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-          <span className="text-muted-foreground">{icon}</span>
-          {label}
-        </div>
-        <p className="text-3xl font-semibold tracking-tight tabular-nums">{value}</p>
-      </CardContent>
-    </Card>
   );
 }

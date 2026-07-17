@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
@@ -56,7 +55,7 @@ export function TeamSwitcher() {
             <DropdownMenuLabel className="text-xs text-muted-foreground">
               Workspaces
             </DropdownMenuLabel>
-            {workspaces.map((ws, i) => (
+            {workspaces.map((ws) => (
               <DropdownMenuItem
                 key={ws.name}
                 onClick={() => setActive(ws)}
@@ -71,10 +70,8 @@ export function TeamSwitcher() {
                     {ws.plan}
                   </span>
                 </div>
-                {active.name === ws.name ? (
-                  <IconCheck className="size-4" />
-                ) : (
-                  <DropdownMenuShortcut>⌘{i + 1}</DropdownMenuShortcut>
+                {active.name === ws.name && (
+                  <IconCheck className="size-4 shrink-0" />
                 )}
               </DropdownMenuItem>
             ))}

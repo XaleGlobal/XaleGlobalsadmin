@@ -131,7 +131,7 @@ export const orders: Order[] = Array.from({ length: 40 }, (_, i) => {
     customer: `${first} ${last}`,
     avatar: `https://api.dicebear.com/9.x/avataaars/svg?seed=${((i + 12) % 70) + 1}`,
     product: pick(products, i),
-    date: new Date(2025, 6, ((i * 3) % 27) + 1).toISOString().slice(0, 10),
+    date: new Date(2026, 6, ((i * 3) % 27) + 1).toISOString().slice(0, 10),
     amount: 29 + ((i * 53) % 940),
     status: pick(orderStatuses, i + (i % 5)),
     method: pick(methods, i),
@@ -149,14 +149,28 @@ export type Product = {
   image: string;
 };
 
-const categories = ["Electronics", "Apparel", "Home", "Beauty", "Sports"];
+// Each product name maps to a sensible category so labels read realistically
+// (a keyboard is Electronics, not Apparel). Category filters/charts stay varied.
+const categoryByProduct: Record<string, string> = {
+  "Aurora Headphones": "Electronics",
+  "Nimbus Keyboard": "Electronics",
+  "Pulse Watch": "Sports",
+  "Vega Monitor": "Electronics",
+  "Orbit Mouse": "Electronics",
+  "Lumina Lamp": "Home",
+  "Echo Speaker": "Home",
+  "Zephyr Drone": "Sports",
+  "Cobalt Charger": "Electronics",
+  "Terra Backpack": "Sports",
+};
 
 export const productList: Product[] = Array.from({ length: 24 }, (_, i) => {
   const stock = (i * 17) % 140;
+  const name = pick(products, i);
   return {
     id: `PRD-${200 + i}`,
-    name: pick(products, i),
-    category: pick(categories, i),
+    name,
+    category: categoryByProduct[name] ?? "Electronics",
     price: 19 + ((i * 41) % 480),
     stock,
     sold: 40 + ((i * 89) % 1200),
@@ -165,10 +179,16 @@ export const productList: Product[] = Array.from({ length: 24 }, (_, i) => {
   };
 });
 
-export const topProducts = productList
-  .slice()
-  .sort((a, b) => b.sold - a.sold)
-  .slice(0, 5);
+// Top sellers: dedupe by name (keep the best-selling variant) so the showcase
+// list never repeats a product.
+export const topProducts = (() => {
+  const seen = new Set<string>();
+  return productList
+    .slice()
+    .sort((a, b) => b.sold - a.sold)
+    .filter((p) => (seen.has(p.name) ? false : seen.add(p.name)))
+    .slice(0, 5);
+})();
 
 export type Activity = {
   id: string;
@@ -250,8 +270,8 @@ export const invoices: Invoice[] = Array.from({ length: 14 }, (_, i) => {
     clientEmail: cust.email,
     company: cust.company,
     avatar: cust.avatar,
-    issued: new Date(2025, 5 + (i % 2), ((i * 5) % 27) + 1).toISOString().slice(0, 10),
-    due: new Date(2025, 6 + (i % 2), ((i * 5) % 27) + 1).toISOString().slice(0, 10),
+    issued: new Date(2026, 5 + (i % 2), ((i * 5) % 27) + 1).toISOString().slice(0, 10),
+    due: new Date(2026, 6 + (i % 2), ((i * 5) % 27) + 1).toISOString().slice(0, 10),
     status: invoiceStatuses[i % invoiceStatuses.length],
     items,
     subtotal,
@@ -385,16 +405,16 @@ export const projects: Project[] = projectSeeds.map((p, i) => {
     category: p.category,
     lead: getTeamMember(i),
     members,
-    start: new Date(2025, 3 + (i % 3), ((i * 4) % 20) + 1).toISOString().slice(0, 10),
-    due: new Date(2025, 8 + (i % 3), ((i * 6) % 25) + 1).toISOString().slice(0, 10),
+    start: new Date(2026, 3 + (i % 3), ((i * 4) % 20) + 1).toISOString().slice(0, 10),
+    due: new Date(2026, 8 + (i % 3), ((i * 6) % 25) + 1).toISOString().slice(0, 10),
     budget: 40000 + i * 15000,
     spent: Math.round((40000 + i * 15000) * (p.progress / 100) * 0.9),
     taskCounts: { total, done },
     milestones: [
-      { title: "Kickoff & discovery", date: "2025-04-12", done: true },
-      { title: "Design sign-off", date: "2025-05-28", done: p.progress > 40 },
-      { title: "Beta release", date: "2025-07-15", done: p.progress > 70 },
-      { title: "General availability", date: "2025-09-30", done: p.progress === 100 },
+      { title: "Kickoff & discovery", date: "2026-04-12", done: true },
+      { title: "Design sign-off", date: "2026-05-28", done: p.progress > 40 },
+      { title: "Beta release", date: "2026-07-15", done: p.progress > 70 },
+      { title: "General availability", date: "2026-09-30", done: p.progress === 100 },
     ],
   };
 });
@@ -427,8 +447,8 @@ export const projectTasks: Task[] = taskTitles.map((title, i) => {
     assignee: getTeamMember(i + 2),
     labels: [labelPool[i % labelPool.length], labelPool[(i * 5 + 2) % labelPool.length]].filter((v, idx, a) => a.indexOf(v) === idx),
     projectId: project.id,
-    start: new Date(2025, 6, ((i * 2) % 20) + 1).toISOString().slice(0, 10),
-    due: new Date(2025, 6, ((i * 3) % 24) + 4).toISOString().slice(0, 10),
+    start: new Date(2026, 6, ((i * 2) % 20) + 1).toISOString().slice(0, 10),
+    due: new Date(2026, 6, ((i * 3) % 24) + 4).toISOString().slice(0, 10),
     points: [1, 2, 3, 5, 8][i % 5],
     comments: (i * 3) % 9,
     subtasks: { total, done: statusIdx === 4 ? total : i % (total + 1) },
@@ -454,18 +474,18 @@ export type FileNode = {
 };
 
 export const files: FileNode[] = [
-  { id: "F-01", name: "Brand Assets", kind: "folder", size: "—", items: 128, modified: "2025-07-10", owner: getTeamMember(3), starred: true },
-  { id: "F-02", name: "Product Specs", kind: "folder", size: "—", items: 64, modified: "2025-07-12", owner: getTeamMember(0) },
-  { id: "F-03", name: "Marketing", kind: "folder", size: "—", items: 42, modified: "2025-07-08", owner: getTeamMember(1) },
-  { id: "F-04", name: "Engineering", kind: "folder", size: "—", items: 210, modified: "2025-07-14", owner: getTeamMember(2), starred: true },
-  { id: "F-05", name: "Q3-roadmap.pdf", kind: "document", size: "2.4 MB", modified: "2025-07-15", owner: getTeamMember(0) },
-  { id: "F-06", name: "hero-shot-final.png", kind: "image", size: "5.1 MB", modified: "2025-07-13", owner: getTeamMember(3) },
-  { id: "F-07", name: "demo-walkthrough.mp4", kind: "video", size: "84 MB", modified: "2025-07-11", owner: getTeamMember(1) },
-  { id: "F-08", name: "pricing-tiers.xlsx", kind: "document", size: "412 KB", modified: "2025-07-09", owner: getTeamMember(6) },
-  { id: "F-09", name: "logo-pack.zip", kind: "archive", size: "18 MB", modified: "2025-07-07", owner: getTeamMember(3) },
-  { id: "F-10", name: "api-reference.md", kind: "code", size: "96 KB", modified: "2025-07-14", owner: getTeamMember(2) },
-  { id: "F-11", name: "onboarding-voiceover.mp3", kind: "audio", size: "12 MB", modified: "2025-07-06", owner: getTeamMember(9) },
-  { id: "F-12", name: "customer-interviews.pdf", kind: "document", size: "3.8 MB", modified: "2025-07-05", owner: getTeamMember(5) },
+  { id: "F-01", name: "Brand Assets", kind: "folder", size: "—", items: 128, modified: "2026-07-10", owner: getTeamMember(3), starred: true },
+  { id: "F-02", name: "Product Specs", kind: "folder", size: "—", items: 64, modified: "2026-07-12", owner: getTeamMember(0) },
+  { id: "F-03", name: "Marketing", kind: "folder", size: "—", items: 42, modified: "2026-07-08", owner: getTeamMember(1) },
+  { id: "F-04", name: "Engineering", kind: "folder", size: "—", items: 210, modified: "2026-07-14", owner: getTeamMember(2), starred: true },
+  { id: "F-05", name: "Q3-roadmap.pdf", kind: "document", size: "2.4 MB", modified: "2026-07-15", owner: getTeamMember(0) },
+  { id: "F-06", name: "hero-shot-final.png", kind: "image", size: "5.1 MB", modified: "2026-07-13", owner: getTeamMember(3) },
+  { id: "F-07", name: "demo-walkthrough.mp4", kind: "video", size: "84 MB", modified: "2026-07-11", owner: getTeamMember(1) },
+  { id: "F-08", name: "pricing-tiers.xlsx", kind: "document", size: "412 KB", modified: "2026-07-09", owner: getTeamMember(6) },
+  { id: "F-09", name: "logo-pack.zip", kind: "archive", size: "18 MB", modified: "2026-07-07", owner: getTeamMember(3) },
+  { id: "F-10", name: "api-reference.md", kind: "code", size: "96 KB", modified: "2026-07-14", owner: getTeamMember(2) },
+  { id: "F-11", name: "onboarding-voiceover.mp3", kind: "audio", size: "12 MB", modified: "2026-07-06", owner: getTeamMember(9) },
+  { id: "F-12", name: "customer-interviews.pdf", kind: "document", size: "3.8 MB", modified: "2026-07-05", owner: getTeamMember(5) },
 ];
 
 // ---------------------------------------------------------------------------
@@ -524,4 +544,91 @@ export const notifications: Notification[] = [
   { id: "N-08", kind: "mention", title: "Hannah Kim mentioned you", description: "“@alex a customer asked about the Q3 roadmap.”", actor: getTeamMember(5), time: "Yesterday", read: true },
   { id: "N-09", kind: "assign", title: "Milestone due soon", description: "“Beta release” for Mobile App Revamp is due in 3 days", time: "2 days ago", read: true },
   { id: "N-10", kind: "system", title: "Storage at 82%", description: "Your workspace is approaching its storage limit", time: "3 days ago", read: true },
+];
+
+// ---------------------------------------------------------------------------
+// Crypto / Web3 dashboard. Token names and tickers are real; figures, balances
+// and on-chain activity are illustrative. Coin icons are inline brand marks
+// (see components/crypto-icon.tsx).
+// ---------------------------------------------------------------------------
+
+export type CryptoAsset = {
+  symbol: string;
+  name: string;
+  chain: string;
+  price: number;
+  change24h: number; // percent, +/-
+  holdings: number; // units held
+  color: string; // brand-ish color for the monogram badge
+  spark: number[]; // 7-day price trend for the sparkline
+};
+
+export const cryptoAssets: CryptoAsset[] = [
+  { symbol: "BTC", name: "Bitcoin", chain: "Bitcoin", price: 68214.32, change24h: 2.4, holdings: 0.684, color: "#F7931A", spark: [64100, 63800, 65200, 66100, 65700, 67300, 68214] },
+  { symbol: "ETH", name: "Ethereum", chain: "Ethereum", price: 3541.08, change24h: 3.8, holdings: 9.2, color: "#627EEA", spark: [3280, 3325, 3298, 3410, 3388, 3472, 3541] },
+  { symbol: "SOL", name: "Solana", chain: "Solana", price: 168.24, change24h: 7.1, holdings: 120, color: "#14B8A6", spark: [141, 148, 152, 149, 158, 163, 168] },
+  { symbol: "BNB", name: "BNB", chain: "BNB Chain", price: 592.4, change24h: -1.2, holdings: 14, color: "#D9A400", spark: [612, 604, 598, 601, 595, 599, 592] },
+  { symbol: "USDC", name: "USD Coin", chain: "Ethereum", price: 1.0, change24h: 0.0, holdings: 12000, color: "#2775CA", spark: [1, 1, 1, 1, 1, 1, 1] },
+  { symbol: "XRP", name: "XRP", chain: "XRP Ledger", price: 0.62, change24h: -2.8, holdings: 9000, color: "#475569", spark: [0.66, 0.65, 0.64, 0.63, 0.64, 0.63, 0.62] },
+  { symbol: "ADA", name: "Cardano", chain: "Cardano", price: 0.46, change24h: 4.2, holdings: 6500, color: "#2B6BE4", spark: [0.42, 0.43, 0.44, 0.43, 0.45, 0.45, 0.46] },
+  { symbol: "POL", name: "Polygon", chain: "Polygon", price: 0.72, change24h: -3.4, holdings: 700, color: "#7C3AED", spark: [0.78, 0.76, 0.75, 0.74, 0.73, 0.74, 0.72] },
+];
+
+// Portfolio value over several time ranges, generated deterministically at
+// module load (never during render). Ends near the current portfolio total.
+function genSeries(
+  labels: string[],
+  start: number,
+  end: number,
+  volatility: number,
+  seed: number
+): { t: string; value: number }[] {
+  const n = labels.length;
+  return labels.map((t, i) => {
+    const p = n === 1 ? 1 : i / (n - 1);
+    const trend = start + (end - start) * p;
+    const wobble =
+      Math.sin(i * 1.7 + seed) * volatility +
+      Math.sin(i * 0.6 + seed * 2) * volatility * 0.5;
+    return { t, value: Math.max(0, Math.round(trend + wobble)) };
+  });
+}
+
+const hours = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, "0")}:00`);
+const days30 = Array.from({ length: 30 }, (_, i) => `${i + 1}`);
+const weekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const monthsYear = ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+
+export const cryptoPortfolioRanges: Record<
+  string,
+  { t: string; value: number }[]
+> = {
+  "24H": genSeries(hours, 124600, 128420, 900, 1),
+  "7D": genSeries(weekdays, 118200, 128420, 2200, 3),
+  "30D": genSeries(days30, 96400, 128420, 3600, 5),
+  "1Y": genSeries(monthsYear, 52800, 128420, 6400, 7),
+};
+
+export type CryptoTx = {
+  id: string;
+  type: "Buy" | "Sell" | "Swap" | "Send" | "Receive" | "Stake";
+  asset: string; // symbol
+  detail?: string; // e.g. swap pair or address
+  amount: number; // units
+  value: number; // usd
+  time: string;
+  status: "Completed" | "Pending" | "Failed";
+};
+
+export const cryptoTransactions: CryptoTx[] = [
+  { id: "TX-9F2A", type: "Buy", asset: "ETH", amount: 1.5, value: 5311.62, time: "2 min ago", status: "Completed" },
+  { id: "TX-7C4B", type: "Receive", asset: "USDC", detail: "from 0x8f…3a91", amount: 2500, value: 2500, time: "18 min ago", status: "Completed" },
+  { id: "TX-5A18", type: "Swap", asset: "SOL", detail: "USDC → SOL", amount: 12.4, value: 2086.18, time: "1 hour ago", status: "Completed" },
+  { id: "TX-2E90", type: "Stake", asset: "ETH", detail: "Lido", amount: 3.0, value: 10623.24, time: "3 hours ago", status: "Completed" },
+  { id: "TX-1D77", type: "Sell", asset: "POL", amount: 1800, value: 1296, time: "5 hours ago", status: "Completed" },
+  { id: "TX-8B03", type: "Send", asset: "BTC", detail: "to 0x1c…9d2f", amount: 0.05, value: 3410.72, time: "Yesterday", status: "Completed" },
+  { id: "TX-6F55", type: "Buy", asset: "BTC", amount: 0.12, value: 8185.72, time: "Yesterday", status: "Completed" },
+  { id: "TX-4A2C", type: "Swap", asset: "ADA", detail: "XRP → ADA", amount: 4200, value: 1932, time: "2 days ago", status: "Pending" },
+  { id: "TX-3E81", type: "Receive", asset: "SOL", detail: "from 0x4b…7e10", amount: 40, value: 6729.6, time: "2 days ago", status: "Completed" },
+  { id: "TX-0C6D", type: "Sell", asset: "BNB", amount: 6, value: 3554.4, time: "3 days ago", status: "Failed" },
 ];

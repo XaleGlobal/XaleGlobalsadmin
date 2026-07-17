@@ -249,8 +249,10 @@ export default function DashboardPage() {
             <CardDescription>Best sellers by revenue this month</CardDescription>
           </CardHeader>
           <CardContent className="space-y-0.5">
-            {topProducts.map((p, i) => {
-              const revenue = p.price * p.sold;
+            {topProducts
+              .map((p) => ({ ...p, revenue: p.price * p.sold }))
+              .sort((a, b) => b.revenue - a.revenue)
+              .map((p, i) => {
               const trend = [18.2, 12.4, 9.6, 6.1, 4.3][i] ?? 3;
               return (
                 <div
@@ -276,7 +278,7 @@ export default function DashboardPage() {
                   </div>
                   <div className="shrink-0 text-right">
                     <p className="text-sm font-medium tabular-nums">
-                      ${revenue.toLocaleString()}
+                      ${p.revenue.toLocaleString()}
                     </p>
                     <p className="text-xs font-medium text-emerald-600 tabular-nums dark:text-emerald-400">
                       +{trend}%

@@ -71,7 +71,7 @@ const initialEvents: CalEvent[] = [
 ];
 
 const WEEKDAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const BASE_YEAR = 2025;
+const BASE_YEAR = 2026;
 const BASE_MONTH = 6; // July (0-indexed)
 const TODAY = 17;
 
@@ -170,10 +170,10 @@ export default function CalendarPage() {
               <IconChevronRight className="size-4" />
             </Button>
           </div>
-          <Button variant="outline" size="sm" onClick={goToday}>
+          <Button variant="outline" onClick={goToday}>
             Today
           </Button>
-          <Button size="sm" onClick={openAdd}>
+          <Button onClick={openAdd}>
             <IconPlus className="size-4" /> New event
           </Button>
         </div>

@@ -26,7 +26,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetContent,
@@ -207,15 +206,15 @@ export function ThemeCustomizer() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetContent className="w-full gap-0 p-0 sm:max-w-sm">
-        <SheetHeader className="border-b">
+      <SheetContent className="flex w-full flex-col gap-0 p-0 sm:max-w-sm">
+        <SheetHeader className="shrink-0 border-b">
           <SheetTitle>Customize</SheetTitle>
           <SheetDescription>
             Tune the theme and copy the config into your project.
           </SheetDescription>
         </SheetHeader>
 
-        <ScrollArea className="h-[calc(100svh-8.5rem)]">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
           <div className="space-y-6 p-4">
             <Section label="Mode">
               <div className="grid grid-cols-3 gap-2">
@@ -232,7 +231,7 @@ export function ThemeCustomizer() {
             </Section>
 
             <Section label="Accent color">
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-2">
                 {accents.map((a) => (
                   <button
                     key={a.key}
@@ -333,9 +332,9 @@ export function ThemeCustomizer() {
               </div>
             </Section>
           </div>
-        </ScrollArea>
+        </div>
 
-        <div className="flex gap-2 border-t p-4">
+        <div className="flex shrink-0 gap-2 border-t p-4">
           <Button variant="outline" className="flex-1" onClick={reset}>
             Reset
           </Button>

@@ -204,25 +204,44 @@ export default function EcommercePage() {
         <Card>
           <CardHeader>
             <CardTitle>Top Products</CardTitle>
-            <CardDescription>Best sellers this month</CardDescription>
+            <CardDescription>Best sellers by revenue this month</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            {topProducts.map((p, i) => {
-              const max = topProducts[0].sold;
+          <CardContent className="space-y-0.5">
+            {topProducts
+              .map((p) => ({ ...p, revenue: p.price * p.sold }))
+              .sort((a, b) => b.revenue - a.revenue)
+              .map((p, i) => {
+              const trend = [18.2, 12.4, 9.6, 6.1, 4.3][i] ?? 3;
               return (
-                <div key={p.id} className="space-y-1.5">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="flex items-center gap-2 font-medium">
-                      <span className="flex size-5 items-center justify-center rounded bg-muted text-xs text-muted-foreground">
-                        {i + 1}
-                      </span>
-                      {p.name}
-                    </span>
-                    <span className="text-muted-foreground tabular-nums">
-                      {p.sold} sold
-                    </span>
+                <div
+                  key={p.id}
+                  className="-mx-2 flex items-center gap-3 rounded-lg px-2 py-2 transition-colors hover:bg-muted/50"
+                >
+                  <span className="w-4 shrink-0 text-center text-sm font-medium text-muted-foreground tabular-nums">
+                    {i + 1}
+                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    width={40}
+                    height={40}
+                    className="size-10 shrink-0 rounded-md border bg-muted object-cover"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium">{p.name}</p>
+                    <p className="truncate text-xs text-muted-foreground">
+                      {p.category} · {p.sold.toLocaleString()} sold
+                    </p>
                   </div>
-                  <Progress value={(p.sold / max) * 100} className="h-1.5" />
+                  <div className="shrink-0 text-right">
+                    <p className="text-sm font-medium tabular-nums">
+                      ${p.revenue.toLocaleString()}
+                    </p>
+                    <p className="text-xs font-medium text-emerald-600 tabular-nums dark:text-emerald-400">
+                      +{trend}%
+                    </p>
+                  </div>
                 </div>
               );
             })}

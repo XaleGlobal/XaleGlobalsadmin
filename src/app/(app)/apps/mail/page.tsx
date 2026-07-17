@@ -316,7 +316,7 @@ export default function MailPage() {
       <Card className="grid h-[calc(100vh-9rem)] grid-cols-1 overflow-hidden p-0 md:grid-cols-[200px_320px_1fr]">
         {/* Folders */}
         <div className="hidden flex-col gap-4 border-r p-4 md:flex">
-          <Button className="w-full justify-start gap-2" onClick={openCompose}>
+          <Button className="w-full gap-2" onClick={openCompose}>
             <IconPencil className="size-4" /> Compose
           </Button>
           <nav className="flex flex-col gap-0.5">

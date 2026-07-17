@@ -45,6 +45,11 @@ import {
   IconArticle,
   IconCode,
   IconSearch,
+  IconCoin,
+  IconStethoscope,
+  IconTruckDelivery,
+  IconBriefcase,
+  IconBuildingSkyscraper,
   type Icon,
 } from "@tabler/icons-react";
 
@@ -81,9 +86,14 @@ export const navGroups: NavGroup[] = [
     items: [
       { title: "Overview", url: "/dashboard", icon: IconLayoutDashboard },
       { title: "Analytics", url: "/dashboard/analytics", icon: IconChartBar },
+      { title: "Reports", url: "/reports", icon: IconReportAnalytics },
       { title: "E-Commerce", url: "/dashboard/ecommerce", icon: IconShoppingCart },
       { title: "CRM", url: "/dashboard/crm", icon: IconUsers },
-      { title: "Reports", url: "/reports", icon: IconReportAnalytics },
+      { title: "Crypto", url: "/dashboard/crypto", icon: IconCoin, badge: "New" },
+      { title: "Healthcare", url: "/dashboard/healthcare", icon: IconStethoscope },
+      { title: "Logistics", url: "/dashboard/logistics", icon: IconTruckDelivery },
+      { title: "Human Resources", url: "/dashboard/hr", icon: IconBriefcase },
+      { title: "Real Estate", url: "/dashboard/real-estate", icon: IconBuildingSkyscraper },
     ],
   },
   {
@@ -94,6 +104,7 @@ export const navGroups: NavGroup[] = [
         icon: IconBox,
         items: [
           { title: "All Products", url: "/products" },
+          { title: "Storefront", url: "/storefront" },
           { title: "Add Product", url: "/products/new" },
         ],
       },
@@ -113,6 +124,11 @@ export const navGroups: NavGroup[] = [
           { title: "Add Customer", url: "/customers/new" },
         ],
       },
+      { title: "Categories", url: "/categories", icon: IconCategory },
+      { title: "Inventory", url: "/inventory", icon: IconPackages },
+      { title: "Discounts", url: "/discounts", icon: IconDiscount2 },
+      { title: "Shipping", url: "/shipping", icon: IconTruck },
+      { title: "Reviews", url: "/reviews", icon: IconStar },
       {
         title: "Invoices",
         icon: IconFileInvoice,
@@ -121,11 +137,6 @@ export const navGroups: NavGroup[] = [
           { title: "New Invoice", url: "/invoices/new" },
         ],
       },
-      { title: "Categories", url: "/categories", icon: IconCategory },
-      { title: "Inventory", url: "/inventory", icon: IconPackages },
-      { title: "Discounts", url: "/discounts", icon: IconDiscount2 },
-      { title: "Shipping", url: "/shipping", icon: IconTruck },
-      { title: "Reviews", url: "/reviews", icon: IconStar },
       {
         title: "Checkout",
         icon: IconShoppingBag,
@@ -137,7 +148,7 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Project",
+    label: "Workspace",
     items: [
       { title: "Projects", url: "/projects", icon: IconFolders, badge: "6" },
       { title: "Team", url: "/team", icon: IconUsersGroup },
@@ -157,7 +168,6 @@ export const navGroups: NavGroup[] = [
       { title: "Tasks", url: "/apps/tasks", icon: IconChecklist },
       { title: "Notes", url: "/apps/notes", icon: IconNotes },
       { title: "File Manager", url: "/apps/file-manager", icon: IconFolder },
-      { title: "Support", url: "/support", icon: IconLifebuoy },
       {
         title: "Blog",
         icon: IconArticle,
@@ -169,15 +179,21 @@ export const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Pages",
+    label: "Account",
     items: [
       { title: "Profile", url: "/profile", icon: IconUserCircle },
       { title: "Settings", url: "/settings", icon: IconSettings },
-      { title: "Developers", url: "/developers", icon: IconCode },
-      { title: "Search Results", url: "/search", icon: IconSearch },
-      { title: "Pricing", url: "/pricing", icon: IconTag },
-      { title: "Integrations", url: "/integrations", icon: IconPuzzle },
       { title: "Notifications", url: "/notifications", icon: IconBell, badge: "3" },
+      { title: "Developers", url: "/developers", icon: IconCode },
+      { title: "Integrations", url: "/integrations", icon: IconPuzzle },
+    ],
+  },
+  {
+    label: "Pages",
+    items: [
+      { title: "Pricing", url: "/pricing", icon: IconTag },
+      { title: "Search Results", url: "/search", icon: IconSearch },
+      { title: "Support", url: "/support", icon: IconLifebuoy },
       { title: "Help Center", url: "/help", icon: IconHelpCircle },
       {
         title: "Authentication",
@@ -195,10 +211,10 @@ export const navGroups: NavGroup[] = [
         title: "Error Pages",
         icon: IconAlertTriangle,
         items: [
-          { title: "404 — Not Found", url: "/errors/404" },
-          { title: "403 — Forbidden", url: "/errors/403" },
-          { title: "500 — Server Error", url: "/errors/500" },
-          { title: "503 — Unavailable", url: "/errors/503" },
+          { title: "404 · Not Found", url: "/errors/404" },
+          { title: "403 · Forbidden", url: "/errors/403" },
+          { title: "500 · Server Error", url: "/errors/500" },
+          { title: "503 · Unavailable", url: "/errors/503" },
           { title: "Maintenance", url: "/maintenance" },
           { title: "Coming Soon", url: "/coming-soon" },
         ],

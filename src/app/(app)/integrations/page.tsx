@@ -365,7 +365,7 @@ export default function IntegrationsPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-muted-foreground">Connected on</dt>
-                    <dd className="font-medium">Jul 12, 2025</dd>
+                    <dd className="font-medium">Jul 12, 2026</dd>
                   </div>
                   <div className="flex items-center justify-between">
                     <dt className="text-muted-foreground">Status</dt>

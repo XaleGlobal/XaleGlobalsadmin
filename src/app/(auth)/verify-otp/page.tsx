@@ -93,7 +93,7 @@ export default function VerifyOtpPage() {
               onKeyDown={(e) => handleKeyDown(i, e)}
               onFocus={(e) => e.target.select()}
               className={cn(
-                "size-12 rounded-lg border bg-background text-center text-lg font-semibold tabular-nums shadow-sm outline-none transition-colors",
+                "size-12 rounded-lg border bg-background text-center text-lg! font-semibold tabular-nums shadow-sm outline-none transition-colors",
                 "focus:border-ring focus:ring-2 focus:ring-ring/40",
                 d && "border-foreground/30"
               )}

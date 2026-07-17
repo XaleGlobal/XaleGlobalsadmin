@@ -73,10 +73,10 @@ export default function NewCustomerPage() {
           title="Add Customer"
           description="Create a new customer record and configure their account."
         >
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" asChild>
             <Link href="/customers">Cancel</Link>
           </Button>
-          <Button type="submit" size="sm" disabled={saving}>
+          <Button type="submit" disabled={saving}>
             <IconDeviceFloppy className="size-4" /> Save customer
           </Button>
         </PageHeader>

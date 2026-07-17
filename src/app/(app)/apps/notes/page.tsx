@@ -139,7 +139,7 @@ const seedNotes: Note[] = [
     color: "blue",
     tags: ["roadmap", "planning"],
     date: "Jul 15",
-    edited: "Edited Jul 15, 2025 · 2:14 PM",
+    edited: "Edited Jul 15, 2026 · 2:14 PM",
     pinned: true,
     body: [
       "We're placing three bets this quarter. Each one should be measurable by the end of September, and every team lead owns a clear slice of the work.",
@@ -165,7 +165,7 @@ const seedNotes: Note[] = [
     color: "emerald",
     tags: ["launch", "mobile"],
     date: "Jul 14",
-    edited: "Edited Jul 14, 2025 · 6:02 PM",
+    edited: "Edited Jul 14, 2026 · 6:02 PM",
     pinned: true,
     body: [
       "Target date is the 28th. App Store review is the long pole, so the build has to be submitted no later than the 22nd to leave buffer for a re-review.",
@@ -191,7 +191,7 @@ const seedNotes: Note[] = [
     color: "violet",
     tags: ["design", "1:1"],
     date: "Jul 12",
-    edited: "Edited Jul 12, 2025 · 11:30 AM",
+    edited: "Edited Jul 12, 2026 · 11:30 AM",
     pinned: false,
     body: [
       "Priya raised that we're carrying two icon libraries and a pile of one-off spacing values. It's slowing every new screen down and creating subtle inconsistencies in dark mode.",
@@ -208,7 +208,7 @@ const seedNotes: Note[] = [
     color: "rose",
     tags: ["travel", "japan"],
     date: "Jul 9",
-    edited: "Edited Jul 9, 2025 · 9:48 PM",
+    edited: "Edited Jul 9, 2026 · 9:48 PM",
     pinned: false,
     body: [
       "Keep the mornings for temples before the crowds arrive, then use the afternoons for wandering and coffee. Evenings are for food — Nishiki Market and Pontocho alley.",
@@ -232,7 +232,7 @@ const seedNotes: Note[] = [
     color: "amber",
     tags: ["books"],
     date: "Jul 6",
-    edited: "Edited Jul 6, 2025 · 8:15 AM",
+    edited: "Edited Jul 6, 2026 · 8:15 AM",
     pinned: false,
     body: [
       "The plan is simple: alternate one novel with one non-fiction so it never feels like homework. If a book isn't landing by page fifty, put it down guilt-free.",
@@ -256,7 +256,7 @@ const seedNotes: Note[] = [
     color: "violet",
     tags: ["side-project", "product"],
     date: "Jul 4",
-    edited: "Edited Jul 4, 2025 · 10:22 PM",
+    edited: "Edited Jul 4, 2026 · 10:22 PM",
     pinned: false,
     body: [
       "Most focus apps punish you with streaks and harsh timers. The opposite bet: a timer that eases you in, fades the UI away, and never guilt-trips a missed day.",
@@ -272,7 +272,7 @@ const seedNotes: Note[] = [
     color: "blue",
     tags: ["writing", "engineering"],
     date: "Jul 1",
-    edited: "Edited Jul 1, 2025 · 4:41 PM",
+    edited: "Edited Jul 1, 2026 · 4:41 PM",
     pinned: false,
     body: [
       "A few post ideas worth developing. The dark-mode piece is closest to ready — I've already got the before/after screenshots and the token table.",
@@ -295,7 +295,7 @@ const seedNotes: Note[] = [
     color: "slate",
     tags: ["retro"],
     date: "Mar 28",
-    edited: "Edited Mar 28, 2025 · 3:05 PM",
+    edited: "Edited Mar 28, 2026 · 3:05 PM",
     pinned: false,
     body: [
       "Retro from the Q1 billing sprint. Worth keeping because a couple of the action items are still open and keep resurfacing.",
@@ -459,10 +459,7 @@ export default function NotesPage() {
       <Card className="grid h-[calc(100vh-11rem)] grid-cols-1 overflow-hidden p-0 md:grid-cols-[220px_320px_1fr]">
         {/* LEFT: folders + tags */}
         <div className="hidden flex-col gap-4 border-r p-4 lg:flex">
-          <Button
-            className="w-full justify-start gap-2"
-            onClick={() => setComposeOpen(true)}
-          >
+          <Button className="w-full gap-2" onClick={() => setComposeOpen(true)}>
             <IconPlus className="size-4" /> New note
           </Button>
 

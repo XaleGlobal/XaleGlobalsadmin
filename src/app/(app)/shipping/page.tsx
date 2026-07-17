@@ -98,7 +98,7 @@ const initialShipments: Shipment[] = orders.slice(0, 12).map((o, i) => {
     avatar: o.avatar,
     carrier,
     tracking: trackingFor(carrier, num),
-    shipDate: new Date(2025, 6, ((i * 2) % 26) + 1).toISOString().slice(0, 10),
+    shipDate: new Date(2026, 6, ((i * 2) % 26) + 1).toISOString().slice(0, 10),
     status: flow[i % flow.length],
   };
 });

@@ -788,7 +788,7 @@ function BrowserMock() {
             <div className="rounded-lg border bg-background p-4">
               <div className="mb-4 flex items-center justify-between">
                 <div className="text-xs font-medium">Revenue overview</div>
-                <div className="text-[11px] text-muted-foreground">2025</div>
+                <div className="text-[11px] text-muted-foreground">2026</div>
               </div>
               <div className="flex h-32 items-end gap-1.5">
                 {bars.map((h, i) => (

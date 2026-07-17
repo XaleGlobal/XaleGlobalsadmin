@@ -25,6 +25,7 @@ import {
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Kbd } from "@/components/ui/kbd";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -241,9 +242,9 @@ export default function SearchPage() {
               <IconX className="size-4" />
             </button>
           )}
-          <kbd className="hidden items-center gap-1 rounded border bg-muted px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground sm:inline-flex">
+          <Kbd className="hidden h-auto px-1.5 py-0.5 text-[10px] sm:inline-flex">
             <IconCornerDownLeft className="size-3" /> Enter
-          </kbd>
+          </Kbd>
         </div>
       </div>
 

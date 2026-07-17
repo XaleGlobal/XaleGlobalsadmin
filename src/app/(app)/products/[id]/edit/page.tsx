@@ -113,10 +113,10 @@ export default function EditProductPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" asChild>
+          <Button variant="outline" asChild>
             <Link href={`/products/${id}`}>Cancel</Link>
           </Button>
-          <Button type="submit" size="sm" className="gap-2">
+          <Button type="submit" className="gap-2">
             <IconDeviceFloppy className="size-4" /> Save changes
           </Button>
         </div>

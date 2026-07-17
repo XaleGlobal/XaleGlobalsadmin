@@ -14,6 +14,8 @@ import {
 
 import { navGroups } from "@/config/nav";
 import { currentUser, recentActivity } from "@/data";
+import { useIsMac } from "@/hooks/use-platform";
+import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CustomizerButton } from "@/components/theme-customizer";
@@ -45,17 +47,29 @@ import {
   CommandList,
 } from "@/components/ui/command";
 
+// Acronyms that shouldn't be title-cased from the URL segment.
+const CRUMB_LABELS: Record<string, string> = {
+  hr: "HR",
+  crm: "CRM",
+  api: "API",
+  otp: "OTP",
+  faq: "FAQ",
+};
+
 function useBreadcrumb() {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
-  return segments.map((s) =>
-    s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
+  return segments.map(
+    (s) =>
+      CRUMB_LABELS[s] ??
+      s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())
   );
 }
 
 export function AppHeader() {
   const crumbs = useBreadcrumb();
   const router = useRouter();
+  const isMac = useIsMac();
   const [open, setOpen] = React.useState(false);
 
   const go = React.useCallback(
@@ -108,9 +122,11 @@ export function AppHeader() {
         >
           <IconSearch className="size-4" />
           <span className="text-sm">Search…</span>
-          <kbd className="pointer-events-none ml-auto inline-flex h-5 select-none items-center gap-0.5 rounded border bg-muted px-1.5 font-mono text-[11px] font-medium text-muted-foreground">
-            <span className="text-xs">⌘</span>K
-          </kbd>
+          <KbdGroup className="ml-auto">
+            <Kbd>{isMac ? "⌘" : "Ctrl"}</Kbd>
+            <span className="text-[11px] font-medium text-muted-foreground">+</span>
+            <Kbd>K</Kbd>
+          </KbdGroup>
         </Button>
         <Button
           variant="ghost"
@@ -143,7 +159,7 @@ export function AppHeader() {
                       onSelect={() => go(sub.url)}
                     >
                       {item.icon && <item.icon className="size-4" />}
-                      <span>{sub.title}</span>
+                      <span className="min-w-0 flex-1 truncate">{sub.title}</span>
                     </CommandItem>
                   ));
                 }
@@ -154,7 +170,7 @@ export function AppHeader() {
                     onSelect={() => go(item.url ?? "#")}
                   >
                     {item.icon && <item.icon className="size-4" />}
-                    <span>{item.title}</span>
+                    <span className="min-w-0 flex-1 truncate">{item.title}</span>
                   </CommandItem>
                 );
               })}
@@ -170,12 +186,17 @@ function NotificationsMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative rounded-full">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="relative rounded-full"
+          aria-label="Notifications"
+        >
           <IconBell className="size-5" />
           <span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-destructive ring-2 ring-background" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-80">
+      <DropdownMenuContent align="end" className="w-[calc(100vw-1rem)] sm:w-80">
         <div className="flex items-center justify-between px-2 py-1.5">
           <DropdownMenuLabel className="p-0">Notifications</DropdownMenuLabel>
           <Badge variant="secondary">3 new</Badge>
@@ -219,15 +240,15 @@ function UserMenu() {
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="end" className="w-64">
         <DropdownMenuLabel className="flex items-center gap-2">
-          <Avatar className="size-8">
+          <Avatar className="size-8 shrink-0">
             <AvatarImage src={currentUser.avatar} alt={currentUser.name} />
             <AvatarFallback>AM</AvatarFallback>
           </Avatar>
-          <div className="grid">
-            <span className="text-sm font-medium">{currentUser.name}</span>
-            <span className="text-xs text-muted-foreground">
+          <div className="grid min-w-0">
+            <span className="truncate text-sm font-medium">{currentUser.name}</span>
+            <span className="truncate text-xs text-muted-foreground">
               {currentUser.email}
             </span>
           </div>

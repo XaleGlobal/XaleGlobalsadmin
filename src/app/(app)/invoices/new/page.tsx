@@ -109,10 +109,10 @@ export default function NewInvoicePage() {
         title="New invoice"
         description="Build a new invoice, add line items and send it to your client."
       >
-        <Button type="button" variant="outline" size="sm" asChild>
+        <Button type="button" variant="outline" asChild>
           <Link href="/invoices">Cancel</Link>
         </Button>
-        <Button type="submit" size="sm">
+        <Button type="submit">
           Save invoice
         </Button>
       </PageHeader>

@@ -66,7 +66,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 5,
     title: "Best travel companion I've owned",
     body: "The noise cancellation is genuinely impressive — I wore these on a six-hour flight and barely touched the volume. Battery easily lasts me the whole week between charges.",
-    date: "2025-07-14",
+    date: "2026-07-14",
     status: "Published",
     reply:
       "So glad they made your flight better! Thanks for the kind words — safe travels.",
@@ -76,7 +76,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 4,
     title: "Fantastic typing feel",
     body: "The switches are satisfyingly tactile and it looks great on my desk. Docked a star only because the software for remapping keys is a little clunky on macOS.",
-    date: "2025-07-13",
+    date: "2026-07-13",
     status: "Published",
   },
   {
@@ -84,7 +84,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 5,
     title: "Sleep tracking is spot on",
     body: "Surprisingly accurate sleep and heart-rate data, and the battery comfortably gets me through three full days. The band is comfy enough that I forget I'm wearing it.",
-    date: "2025-07-12",
+    date: "2026-07-12",
     status: "Published",
   },
   {
@@ -92,7 +92,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 2,
     title: "Needed calibration out of the box",
     body: "Color accuracy was noticeably off and I spent an evening dialing it in. Once calibrated it's sharp, but I expected better at this price point.",
-    date: "2025-07-11",
+    date: "2026-07-11",
     status: "Pending",
   },
   {
@@ -100,7 +100,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 5,
     title: "My wrist finally stopped aching",
     body: "Perfect ergonomics for long editing sessions and the scroll wheel is buttery smooth. Setup was instant on both my laptops.",
-    date: "2025-07-10",
+    date: "2026-07-10",
     status: "Published",
   },
   {
@@ -108,7 +108,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 3,
     title: "Lovely light, twitchy controls",
     body: "The warm light and smooth dimmer are great, but the touch base is a bit too sensitive — it switches on if you so much as brush past it.",
-    date: "2025-07-09",
+    date: "2026-07-09",
     status: "Published",
   },
   {
@@ -116,7 +116,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 4,
     title: "Big sound for its size",
     body: "Room-filling audio and pairing was instant. Bass could be a touch tighter, but for the price I'm very happy with it.",
-    date: "2025-07-08",
+    date: "2026-07-08",
     status: "Published",
   },
   {
@@ -124,7 +124,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 1,
     title: "Connection kept dropping",
     body: "Lost the signal twice in the first week and the return-to-home failed once over water. Support was slow to reply. Can't recommend it in its current state.",
-    date: "2025-07-07",
+    date: "2026-07-07",
     status: "Flagged",
   },
   {
@@ -132,7 +132,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 5,
     title: "Charges everything at once",
     body: "Powers my phone and laptop simultaneously without breaking a sweat, and it's compact enough to live in my bag permanently. Exactly what I wanted.",
-    date: "2025-07-06",
+    date: "2026-07-06",
     status: "Published",
   },
   {
@@ -140,7 +140,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 4,
     title: "Thoughtfully designed",
     body: "Well built with smart compartments and a properly padded laptop sleeve. My only wish is that the water-bottle pocket was a touch deeper.",
-    date: "2025-07-05",
+    date: "2026-07-05",
     status: "Pending",
   },
   {
@@ -148,7 +148,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 4,
     title: "Warm, detailed sound",
     body: "A great daily driver — audio is warm and detailed. The ear cushions get a little warm after a couple of hours, but nothing dealbreaking.",
-    date: "2025-07-04",
+    date: "2026-07-04",
     status: "Published",
   },
   {
@@ -156,7 +156,7 @@ const reviewSeeds: Omit<Review, "id" | "author" | "avatar">[] = [
     rating: 3,
     title: "Good, improving with updates",
     body: "Strong fitness features, though notifications are occasionally delayed. Firmware updates have steadily made it better, so I'm optimistic.",
-    date: "2025-07-03",
+    date: "2026-07-03",
     status: "Published",
   },
 ];
