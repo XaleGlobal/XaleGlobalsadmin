@@ -1,8 +1,8 @@
 <div align="center">
 
-# OrbynAdmin
 
-A free and open-source admin dashboard template built with Next.js, Tailwind CSS and shadcn/ui. It ships with 70+ prebuilt pages (ten dashboards spanning e-commerce, CRM, crypto and four industries, plus a project management app, chat, mail, auth flows and more), all wired up with demo data so you can clone it and start building instead of setting up tables, charts and forms from scratch.
+
+ admin dashboard template built with Next.js, Tailwind CSS and shadcn/ui. It ships with 70+ prebuilt pages (ten dashboards spanning e-commerce, CRM, crypto and four industries, plus a project management app, chat, mail, auth flows and more), all wired up with demo data so you can clone it and start building instead of setting up tables, charts and forms from scratch.
 
 Everything is MIT licensed. No pro tier, no locked components.
 
