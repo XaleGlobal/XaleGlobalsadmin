@@ -209,8 +209,8 @@ export const recentActivity: Activity[] = [
 ];
 
 export const currentUser = {
-  name: "Alex Morgan",
-  email: "alex.morgan@orbynadmin.com",
+  name: "Xale Global",
+  email: "alexian@xaleglobal.com",
   role: "Administrator",
   avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=8",
 };
@@ -322,16 +322,16 @@ export type TeamMember = {
 };
 
 export const team: TeamMember[] = [
-  { id: "TM-01", name: "Alex Morgan", role: "Head of Product", department: "Product", email: "alex.morgan@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=8", status: "Active", location: "San Francisco, US" },
-  { id: "TM-02", name: "Sofia Rossi", role: "Head of Growth", department: "Marketing", email: "sofia.rossi@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=32", status: "Active", location: "Milan, IT" },
-  { id: "TM-03", name: "Marcus Chen", role: "Staff Engineer", department: "Engineering", email: "marcus.chen@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=33", status: "Away", location: "Singapore, SG" },
-  { id: "TM-04", name: "Priya Nair", role: "Product Designer", department: "Design", email: "priya.nair@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=45", status: "Active", location: "Bangalore, IN" },
-  { id: "TM-05", name: "Daniel Weber", role: "Backend Engineer", department: "Engineering", email: "daniel.weber@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=52", status: "Offline", location: "Berlin, DE" },
-  { id: "TM-06", name: "Hannah Kim", role: "Customer Success Lead", department: "Success", email: "hannah.kim@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=47", status: "Active", location: "Seoul, KR" },
-  { id: "TM-07", name: "Lucas Silva", role: "Data Analyst", department: "Data", email: "lucas.silva@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=59", status: "Active", location: "São Paulo, BR" },
-  { id: "TM-08", name: "Emma Novak", role: "Frontend Engineer", department: "Engineering", email: "emma.novak@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=41", status: "Away", location: "Toronto, CA" },
-  { id: "TM-09", name: "Omar Haddad", role: "DevOps Engineer", department: "Engineering", email: "omar.haddad@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=60", status: "Active", location: "Dubai, AE" },
-  { id: "TM-10", name: "Chloe Dubois", role: "Content Strategist", department: "Marketing", email: "chloe.dubois@orbynadmin.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=44", status: "Offline", location: "Paris, FR" },
+  { id: "TM-01", name: "Alex Morgan", role: "Head of Product", department: "Product", email: "alex.morgan@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=8", status: "Active", location: "San Francisco, US" },
+  { id: "TM-02", name: "Sofia Rossi", role: "Head of Growth", department: "Marketing", email: "sofia.rossi@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=32", status: "Active", location: "Milan, IT" },
+  { id: "TM-03", name: "Marcus Chen", role: "Staff Engineer", department: "Engineering", email: "marcus.chen@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=33", status: "Away", location: "Singapore, SG" },
+  { id: "TM-04", name: "Priya Nair", role: "Product Designer", department: "Design", email: "priya.nair@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=45", status: "Active", location: "Bangalore, IN" },
+  { id: "TM-05", name: "Daniel Weber", role: "Backend Engineer", department: "Engineering", email: "daniel.weber@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=52", status: "Offline", location: "Berlin, DE" },
+  { id: "TM-06", name: "Hannah Kim", role: "Customer Success Lead", department: "Success", email: "hannah.kim@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=47", status: "Active", location: "Seoul, KR" },
+  { id: "TM-07", name: "Lucas Silva", role: "Data Analyst", department: "Data", email: "lucas.silva@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=59", status: "Active", location: "São Paulo, BR" },
+  { id: "TM-08", name: "Emma Novak", role: "Frontend Engineer", department: "Engineering", email: "emma.novak@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=41", status: "Away", location: "Toronto, CA" },
+  { id: "TM-09", name: "Omar Haddad", role: "DevOps Engineer", department: "Engineering", email: "omar.haddad@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=60", status: "Active", location: "Dubai, AE" },
+  { id: "TM-10", name: "Chloe Dubois", role: "Content Strategist", department: "Marketing", email: "chloe.dubois@xaleglobal.com", avatar: "https://api.dicebear.com/9.x/avataaars/svg?seed=44", status: "Offline", location: "Paris, FR" },
 ];
 
 export const getTeamMember = (i: number) => team[i % team.length];
