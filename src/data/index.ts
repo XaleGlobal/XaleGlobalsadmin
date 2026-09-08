@@ -297,13 +297,13 @@ export const getInvoiceById = (id: string) =>
   invoices.find((inv) => inv.id === id);
 
 export const company = {
-  name: "OrbynAdmin",
-  email: "billing@orbynadmin.com",
-  address: "2100 Market Street, Suite 400",
-  city: "San Francisco, CA 94114",
-  country: "United States",
-  phone: "+1 (415) 555-0142",
-  taxId: "US-482910573",
+  name: "Xale Global",
+  email: "alexian@xaleglobal.com.com",
+  address: "1 ncondo road",
+  city: "durban, 
+  country: "south africa",
+  phone: "+27 (062) 401 0561",
+  
 };
 
 // ---------------------------------------------------------------------------
